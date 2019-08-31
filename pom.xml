@@ -23,6 +23,7 @@
     <spring.redis.version>1.6.0.RELEASE</spring.redis.version>
     <jedis.version>2.7.2</jedis.version>
     <commons.version>2.4.2</commons.version>
+    <cargo.version>1.7.7</cargo.version>
   </properties>
 
 
@@ -252,7 +253,7 @@
         <!-- https://mvnrepository.com/artifact/org.codehaus.cargo/cargo-maven2-plugin -->
         <groupId>org.codehaus.cargo</groupId>
         <artifactId>cargo-maven2-plugin</artifactId>
-        <version>1.7.7</version>
+        <version>${cargo.version}</version>
 
         <configuration>
           <container>
