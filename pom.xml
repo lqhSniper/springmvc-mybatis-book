@@ -288,7 +288,7 @@
               <artifactId>springmvc-mybatis-book</artifactId>
               <type>war</type>
               <properties>
-                <context>ssm</context>    <!-- 部署路径 -->
+                <context>/</context>    <!-- 部署路径 -->
               </properties>
             </deployable>
           </deployables>
@@ -302,13 +302,13 @@
               <goal>deployer-deploy</goal>
             </goals>
           </execution>
-          <execution>
-            <id>clean-deployer</id>
-            <phase>clean</phase>
-            <goals>
-              <goal>deployer-undeploy</goal>
-            </goals>
-          </execution>
+          <!--<execution>-->
+            <!--<id>clean-deployer</id>-->
+            <!--<phase>clean</phase>-->
+            <!--<goals>-->
+              <!--<goal>deployer-undeploy</goal>-->
+            <!--</goals>-->
+          <!--</execution>-->
         </executions>
       </plugin>
 
