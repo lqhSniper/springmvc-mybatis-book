@@ -293,13 +293,13 @@
               <goal>deployer-deploy</goal>
             </goals>
           </execution>
-          <execution>
-            <id>clean-deployer</id>
-            <phase>clean</phase>
-            <goals>
-              <goal>deployer-undeploy</goal>
-            </goals>
-          </execution>
+          <!--<execution>-->
+            <!--<id>clean-deployer</id>-->
+            <!--<phase>clean</phase>-->
+            <!--<goals>-->
+              <!--<goal>deployer-undeploy</goal>-->
+            <!--</goals>-->
+          <!--</execution>-->
         </executions>
       </plugin>
 
