@@ -279,7 +279,7 @@
               <artifactId>springmvc-mybatis-book</artifactId>
               <type>war</type>
               <properties>
-                <context>ssm</context>    <!-- 部署路径 -->
+                <context>/</context>    <!-- 部署路径 -->
               </properties>
             </deployable>
           </deployables>
