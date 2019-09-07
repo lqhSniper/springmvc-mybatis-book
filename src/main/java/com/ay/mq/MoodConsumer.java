@@ -19,7 +19,7 @@ import javax.jms.MessageListener;
 @Component
 public class MoodConsumer implements MessageListener{
 
-    private static final String PRAISE_HASH_KEY = "springmv.mybatis.boot.mood.id.list.key";
+    private static final String PRAISE_HASH_KEY = "springmvc.mybatis.boot.mood.id.list.key";
 
     @Resource
     private RedisTemplate redisTemplate;
