@@ -23,6 +23,8 @@
     <spring.redis.version>1.6.0.RELEASE</spring.redis.version>
     <jedis.version>2.7.2</jedis.version>
     <commons.version>2.4.2</commons.version>
+    <cargo.version>1.7.7</cargo.version>
+    <tomcat.version>8.5.45</tomcat.version>
   </properties>
 
 
@@ -245,5 +247,69 @@
 
   <build>
     <finalName>springmvc-mybatis-book</finalName>
+
+    <defaultGoal>clean compile</defaultGoal>
+    <plugins>
+      <plugin>
+        <!-- https://mvnrepository.com/artifact/org.codehaus.cargo/cargo-maven2-plugin -->
+        <groupId>org.codehaus.cargo</groupId>
+        <artifactId>cargo-maven2-plugin</artifactId>
+        <version>${cargo.version}</version>
+
+        <configuration>
+          <container>
+            <containerId>tomcat8x</containerId>
+            <artifactInstaller>
+                <groupId>org.apache.tomcat</groupId>
+                <artifactId>tomcat</artifactId>
+                <version>${tomcat.version}</version>
+            </artifactInstaller>
+
+            <!--<home>D:\_development\apache-tomcat-8.5.37</home>-->
+            <!--<type>installed</type>                                    &lt;!&ndash; 指定类型：standalone, installed等 &ndash;&gt;-->
+          </container>
+          <configuration>
+            <type>standalone</type>
+            <home>${project.build.directory}/tomcat8x</home>
+            <properties>
+              <cargo.servlet.port>8080</cargo.servlet.port>
+              <cargo.jvmargs>
+                -Xdebug
+                -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8989
+                -Dfile.encoding=UTF-8
+              </cargo.jvmargs>
+            </properties>
+          </configuration>
+          <deployables>    <!-- 部署设置 -->
+            <deployable>    <!-- 部署的war包名等 -->
+              <groupId>com.ay</groupId>
+              <artifactId>springmvc-mybatis-book</artifactId>
+              <type>war</type>
+              <properties>
+                <context>/</context>    <!-- 部署路径 -->
+              </properties>
+            </deployable>
+          </deployables>
+        </configuration>
+        <executions>
+          <!-- 执行的动作 -->
+          <execution>
+            <id>verify-deployer</id>
+            <phase>install</phase>        <!-- 解析install -->
+            <goals>
+              <goal>deployer-deploy</goal>
+            </goals>
+          </execution>
+          <!--<execution>-->
+            <!--<id>clean-deployer</id>-->
+            <!--<phase>clean</phase>-->
+            <!--<goals>-->
+              <!--<goal>deployer-undeploy</goal>-->
+            <!--</goals>-->
+          <!--</execution>-->
+        </executions>
+      </plugin>
+
+    </plugins>
   </build>
 </project>

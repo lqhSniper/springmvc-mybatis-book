@@ -30,6 +30,9 @@
         <property name="pubSubDomain" value="false" />
     </bean>
 
+    <!-- 消息监听器 -->
+    <bean id="moodConsumer" class="com.ay.mq.MoodConsumer"/>
+
     <!-- 消息消费者 start-->
     <!-- 定义Queue监听器 -->
     <jms:listener-container destination-type="queue"

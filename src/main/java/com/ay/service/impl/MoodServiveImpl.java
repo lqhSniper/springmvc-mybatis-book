@@ -103,7 +103,7 @@ public class MoodServiveImpl implements MoodService {
     @Resource
     private RedisTemplate redisTemplate;
 
-    private static final String PRAISE_HASH_KEY = "springmv.mybatis.boot.mood.id.list.key";
+    private static final String PRAISE_HASH_KEY = "springmvc.mybatis.boot.mood.id.list.key";
 
 
 
